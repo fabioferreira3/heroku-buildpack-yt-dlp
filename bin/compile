@@ -1,0 +1,19 @@
+#!/bin/sh
+
+BUILD_DIR="$1"
+CACHE_DIR="$2"
+
+echo "-----> Installing yt-dlp and dependencies"
+
+YT_DLP_BIN_PATH="$BUILD_DIR/.heroku/yt-dlp/bin"
+
+mkdir -p "$YT_DLP_BIN_PATH"
+
+curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o "$YT_DLP_BIN_PATH/yt-dlp"
+chmod a+rx "$YT_DLP_BIN_PATH/yt-dlp"
+"$YT_DLP_BIN_PATH/yt-dlp" -U
+
+ln -s /usr/bin/python3 /usr/local/bin/python
+pip install tiktoken
+
+echo "-----> Installation complete"

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cat << EOF
+---
+config_vars:
+  PATH: /app/.heroku/yt-dlp/bin:/usr/local/bin:/usr/bin:/bin
+EOF

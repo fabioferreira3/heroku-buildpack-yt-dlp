@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Always succeed
+echo "yt-dlp Buildpack"
+exit 0
