@@ -1,16 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-BUILD_DIR="$1"
-CACHE_DIR="$2"
+# The build directory is the first argument
+BUILD_DIR=$1
 
-echo "-----> Installing yt-dlp and dependencies"
+# The cache directory is the second argument
+CACHE_DIR=$2
 
-YT_DLP_BIN_PATH="$BUILD_DIR/.heroku/yt-dlp/bin"
+# Download and install yt-dlp
+echo "-----> Downloading and installing yt-dlp"
+curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $BUILD_DIR/yt-dlp
+chmod a+rx $BUILD_DIR/yt-dlp
 
-mkdir -p "$YT_DLP_BIN_PATH"
+# Update yt-dlp (not necessary but recommended)
+echo "-----> Updating yt-dlp"
+$BUILD_DIR/yt-dlp -U
 
-curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o "$YT_DLP_BIN_PATH/yt-dlp"
-chmod a+rx "$YT_DLP_BIN_PATH/yt-dlp"
-"$YT_DLP_BIN_PATH/yt-dlp" -U
-
-echo "-----> Installation complete"
+# Create a .profile.d script to add yt-dlp to the PATH
+mkdir -p $BUILD_DIR/.profile.d
+echo 'export PATH="$PATH:$HOME/yt-dlp"' > $BUILD_DIR/.profile.d/yt-dlp.sh
