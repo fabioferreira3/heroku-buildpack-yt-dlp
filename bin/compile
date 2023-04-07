@@ -17,4 +17,5 @@ $BUILD_DIR/yt-dlp -U
 
 # Create a .profile.d script to add yt-dlp to the PATH
 mkdir -p $BUILD_DIR/.profile.d
-echo 'export PATH="$PATH:$HOME/yt-dlp"' > $BUILD_DIR/.profile.d/yt-dlp.sh
+echo 'export PATH="$HOME:$PATH"' > $BUILD_DIR/.profile.d/yt-dlp.sh
+
