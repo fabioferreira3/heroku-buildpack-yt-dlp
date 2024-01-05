@@ -12,8 +12,8 @@ curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $BUI
 chmod a+rx $BUILD_DIR/yt-dlp
 
 # Update yt-dlp (not necessary but recommended)
-echo "-----> Updating yt-dlp"
-$BUILD_DIR/yt-dlp -U
+# echo "-----> Updating yt-dlp"
+# $BUILD_DIR/yt-dlp -U
 
 # Create a .profile.d script to add yt-dlp to the PATH
 mkdir -p $BUILD_DIR/.profile.d
