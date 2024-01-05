@@ -8,7 +8,7 @@ CACHE_DIR=$2
 
 # Download and install yt-dlp
 echo "-----> Downloading and installing yt-dlp"
-curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $BUILD_DIR/yt-dlp
+curl -L https://github.com/yt-dlp/yt-dlp/releases/download/2023.12.30/yt-dlp -o $BUILD_DIR/yt-dlp
 chmod a+rx $BUILD_DIR/yt-dlp
 
 # Update yt-dlp (not necessary but recommended)
